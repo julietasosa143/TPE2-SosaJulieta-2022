@@ -19,6 +19,11 @@ class CategoriesModel
         $categories = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $categories;
     }
+    function getCategory(){
+        $sentencia = $this->db->prepare("SELECT * FROM categories WHERE id_categoria = ?");
+        $sentencia->execute();
+        $category= $sentencia->fetch(PDO::FETCH_OBJ);
+    }
     function getCategoryForItem($id)
     {
         $sentencia = $this->db->prepare("SELECT * FROM categories WHERE id_categoria = ?");
