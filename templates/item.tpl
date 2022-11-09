@@ -8,4 +8,11 @@
 <h3 class="text-center">${$items->precio}</h3>
 
 {include file="templates/reviewForms.tpl"}
+
+<div id="reviewContainer">
+ //contenedor vacio para las reviews
+</div>
+
+<script src="js/api.js">
+
 {include file="templates/footer.tpl"}
