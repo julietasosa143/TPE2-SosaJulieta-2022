@@ -7,5 +7,5 @@
 <p class="text-center lead"> Categoria: {$items ->categoria}</p>
 <h3 class="text-center">${$items->precio}</h3>
 
-
+{include file="templates/reviewForms.tpl"}
 {include file="templates/footer.tpl"}
