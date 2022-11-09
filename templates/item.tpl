@@ -7,8 +7,7 @@
 <p class="text-center lead"> Categoria: {$items ->categoria}</p>
 <h3 class="text-center">${$items->precio}</h3>
 
-{include file="templates/reviewForms.tpl"}
-
+<h3 class="text-center">Reviews de este producto</h3>
 <div id="reviewContainer">
  //contenedor vacio para las reviews
 </div>
