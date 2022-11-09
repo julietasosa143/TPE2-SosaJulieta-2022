@@ -6,6 +6,8 @@ let reviews = [];
 
 let form = document.querySelector('#reviewForm');
 form.addEventListener('submit', addReview);
+let orderForm= document.querySelector('#filterForm');
+form.addEventListener('click', orderReviews);
 
 async function getAll() {
     try {
@@ -86,12 +88,14 @@ function showReviews() {
 
         ul.innerHTML += html;
     }
-
-    // asigno event listener para los botones
     const btnsDelete = document.querySelectorAll('a.btn-delete');
     for (const btnDelete of btnsDelete) {
         btnDelete.addEventListener('click', deleteTask);
     }
+}
+
+function orderReviews(){
+    
 }
 
 getAll();

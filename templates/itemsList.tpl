@@ -17,4 +17,12 @@
     {if $logged}
         {include file="templates/add_editForItems.tpl"}
     {/if}
+    <div>
+        <h4>Podes dejarnos tu opinion del producto para colaborar con otros compradores! (esta aparecera cuando entres a un la descripcion de un producto)</h4>
+    </div>
+    </div>
+    <div>
+        {include file="templates/reviewForms.tpl"}
+    </div>
+<script src="js/api.js">
 {include file="templates/footer.tpl"}

@@ -8,8 +8,15 @@
 <h3 class="text-center">${$items->precio}</h3>
 
 <h3 class="text-center">Reviews de este producto</h3>
+<form action="order" id="filterForm">
+    <select class="form-select " aria-label="Default select example" name="order">
+        <option value="0">Sin orden</option>
+        <option value="1"> Ordenar por cantidad de estrellas -mas a menos- </option>
+        <option value="2"> Ordenar por cantidad de estrellas -menos a mas- </option>
+    </select>
+</form>
 <div id="reviewContainer">
- //contenedor vacio para las reviews
+ 
 </div>
 
 <script src="js/api.js">
