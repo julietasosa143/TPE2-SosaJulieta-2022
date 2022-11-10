@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-11-10 00:24:01
+/* Smarty version 3.1.39, created on 2022-11-10 19:11:38
   from 'C:\Users\julie\OneDrive\Documents\TUDAI\Web 2\xampp\htdocs\web2\TPE2-SosaJulieta-2022\templates\item.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_636c3691d0a484_42938730',
+  'unifunc' => 'content_636d3eda6a70b8_34383197',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f7cc792573d5e75feb465761f1298011a80b044' => 
     array (
       0 => 'C:\\Users\\julie\\OneDrive\\Documents\\TUDAI\\Web 2\\xampp\\htdocs\\web2\\TPE2-SosaJulieta-2022\\templates\\item.tpl',
-      1 => 1668025699,
+      1 => 1668036547,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_636c3691d0a484_42938730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_636d3eda6a70b8_34383197 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,6 +40,13 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
 </h3>
 
 <h3 class="text-center">Reviews de este producto</h3>
+<form action="order" id="filterForm">
+    <select class="form-select " aria-label="Default select example" name="order">
+        <option value="0">Sin orden</option>
+        <option value="1"> Ordenar por cantidad de estrellas -mas a menos- </option>
+        <option value="2"> Ordenar por cantidad de estrellas -menos a mas- </option>
+    </select>
+</form>
 <div id="reviewContainer">
  
 </div>

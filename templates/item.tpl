@@ -14,6 +14,7 @@
         <option value="1"> Ordenar por cantidad de estrellas -mas a menos- </option>
         <option value="2"> Ordenar por cantidad de estrellas -menos a mas- </option>
     </select>
+    <input type="submit" value="Ordenar">
 </form>
 <div id="reviewContainer">
  

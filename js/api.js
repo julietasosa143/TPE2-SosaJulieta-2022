@@ -7,7 +7,7 @@ let reviews = [];
 let form = document.querySelector('#reviewForm');
 form.addEventListener('submit', addReview);
 let orderForm= document.querySelector('#filterForm');
-form.addEventListener('click', orderReviews);
+orderForm.addEventListener('submit', orderReviews);
 
 async function getAll() {
     try {
@@ -92,10 +92,6 @@ function showReviews() {
     for (const btnDelete of btnsDelete) {
         btnDelete.addEventListener('click', deleteTask);
     }
-}
-
-function orderReviews(){
-    
 }
 
 getAll();

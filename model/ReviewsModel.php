@@ -7,6 +7,12 @@ class ReviewsModel
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_tomiylau;charset=utf8', 'root', '');
     }
+    function getAll(){
+        $sentencia= $this->db->prepare("SELECT * FROM reviews");
+        $sentencia->execute();
+        $reviews=$sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $reviews;
+    }
 
     function getReviewsfromDB($id_item)
     {
@@ -35,5 +41,20 @@ class ReviewsModel
         $sentencia = $this->db->prepare("DELETE FROM reviews WHERE id_review=?");
         $sentencia->execute(array($id));
     }
+    
+    function getOrderedReviews($id_item, $order){
+        if($order===1){
+            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ? ORDER BY DESC");
+        }
+        else if($order===2){
+            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ? ORDER BY ASC"); 
+        }else if ($order===0){
+            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ?");
+        }
+        $sentencia->execute(array($id_item));
+        $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $reviews;
+    }
+
     
 }

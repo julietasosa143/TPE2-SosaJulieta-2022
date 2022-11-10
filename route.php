@@ -4,6 +4,7 @@ require_once "controllers/GeneralController.php";
 require_once 'controllers/ItemsController.php';
 require_once 'controllers/CategoriesController.php';
 require_once 'controllers/LoginController.php';
+require_once 'controllers/ApiController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -18,6 +19,7 @@ $GeneralController = new GeneralController();
 $CategoriesController= new CategoriesController();
 $ItemsController= new ItemsController();
 $LoginController= new LoginController();
+$ApiController= new ApiController();
 
     
 
@@ -64,5 +66,7 @@ switch ($params[0]) {
     case 'deleteItem':
         $ItemsController -> deleteItem($params[1]);
         break;
-    
+    case 'order':
+        $ApiController-> orderReviews($params[1]);
+        break;
 }
