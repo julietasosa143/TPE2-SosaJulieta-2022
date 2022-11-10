@@ -30,10 +30,10 @@ class ReviewsModel
         return $reviews;
     }
 
-    function insertReview($body, $date, $punctuation, $id_item)
+    function insertReview($body, $punctuation, $id_item)
     {
-        $sentencia = $this->db->prepare("INSERT INTO reviews (body,date,punctuation,id_item) VALUES (?, ?, ?, ?)");
-        $sentencia->execute(array($body, $date, $punctuation, $id_item));
+        $sentencia = $this->db->prepare("INSERT INTO reviews (body,punctuation,id_item) VALUES (?, ?, ?, ?)");
+        $sentencia->execute(array($body, $punctuation, $id_item));
     }
 
     function deleteReview($id)

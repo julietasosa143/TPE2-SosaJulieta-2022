@@ -2,20 +2,25 @@
 
 require_once "./model/ReviewsModel.php";
 require_once "./view/ApiView.php";
-require_once "./view/ItemsView.php";
 
 
-class ApiController{
+abstract class ApiController{
 
     private $model;
     private $view;
-   
+    private $data;
 
     function __construct()
     {
         $this->model = new ReviewsModel();
         $this->view = new ApiView();
+        $this->data = file_get_contents("php://input"); 
+        
     }
+    function getData(){ 
+        return json_decode($this->data); 
+    }
+   
     function getAll(){
         $reviews= $this->model->getAll();
         if($reviews){
@@ -57,25 +62,18 @@ class ApiController{
    
 
     function createReview(){
-        $body = $this->getBody();
-        $reviews = $body->body;
+        $body = $this->getData();
+        $review = $body->body;
         $punctuation = $body->punctuation;
         $id_item = $body->id_item;
-        $date = $body->date;
-        $this->model->insertReview($reviews,$date, $punctuation, $id_item);
+        $this->model->insertReview($review, $punctuation, $id_item);
         $this->view->response("Comentario creado con exito", 200);
-        }
-
-
-    function getBody(){
-        $bodyString = file_get_contents("php://input");
-        return json_decode($bodyString);
     }
 
     function orderReviews($params=null){
-        $order $_POST['order'];
+        $order = $_POST['order'];
         $id_item = $params[":ID"];
-        $reviews = $this->model->getOrderedReviews($id_item);
+        $reviews = $this->model->getOrderedReviews($id_item, $order);
         if($reviews){
             return $this->view->response($reviews,200);
         }else{
