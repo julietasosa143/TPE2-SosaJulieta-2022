@@ -66,7 +66,4 @@ switch ($params[0]) {
     case 'deleteItem':
         $ItemsController -> deleteItem($params[1]);
         break;
-    case 'order':
-        $ApiController-> orderReviews($params[1]);
-        break;
 }

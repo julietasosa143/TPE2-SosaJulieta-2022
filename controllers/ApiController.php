@@ -4,7 +4,7 @@ require_once "./model/ReviewsModel.php";
 require_once "./view/ApiView.php";
 
 
-abstract class ApiController{
+class ApiController{
 
     private $model;
     private $view;
@@ -22,7 +22,7 @@ abstract class ApiController{
     }
    
     function getAll(){
-        $reviews= $this->model->getAll();
+        $reviews= $this->model->getAllFromDB();
         if($reviews){
             return $this->view->response($reviews, 200);}
         else{
@@ -60,7 +60,6 @@ abstract class ApiController{
         }
     }
    
-
     function createReview(){
         $body = $this->getData();
         $review = $body->body;

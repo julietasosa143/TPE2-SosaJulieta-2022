@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-11-09 20:53:14
+/* Smarty version 3.1.39, created on 2022-11-11 18:31:06
   from 'C:\Users\julie\OneDrive\Documents\TUDAI\Web 2\xampp\htdocs\web2\TPE2-SosaJulieta-2022\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_636c052a3fdae4_87705488',
+  'unifunc' => 'content_636e86da499c68_66612451',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '25f8ab1dd4fe019d1c6d5997146fdb8ad894f916' => 
     array (
       0 => 'C:\\Users\\julie\\OneDrive\\Documents\\TUDAI\\Web 2\\xampp\\htdocs\\web2\\TPE2-SosaJulieta-2022\\templates\\header.tpl',
-      1 => 1665945778,
+      1 => 1668187796,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_636c052a3fdae4_87705488 (Smarty_Internal_Template $_smarty_tpl) {
+function content_636e86da499c68_66612451 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="shortcut icon" href="img\icons8-liga-de-leyendas-64.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"><?php echo '</script'; ?>

@@ -5,9 +5,9 @@ class ReviewsModel
     private $db;
     function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_tomiylau;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_tpe;charset=utf8', 'root', '');
     }
-    function getAll(){
+    function getAllFromDB(){
         $sentencia= $this->db->prepare("SELECT * FROM reviews");
         $sentencia->execute();
         $reviews=$sentencia->fetchAll(PDO::FETCH_OBJ);
