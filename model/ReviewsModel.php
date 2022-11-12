@@ -30,10 +30,10 @@ class ReviewsModel
         return $review;
     }
 
-    function insertReview($body, $punctuation, $id_item)
+    function insertReview($review, $estrellas, $item)
     {
-        $sentencia = $this->db->prepare("INSERT INTO reviews (body,punctuation,id_item) VALUES (?, ?, ?, ?)");
-        $sentencia->execute(array($body, $punctuation, $id_item));
+        $sentencia = $this->db->prepare("INSERT INTO reviews (review,estrellas,item) VALUES (?, ?, ?)");
+        $sentencia->execute(array($review, $estrellas, $item));
     }
 
     function deleteReview($id)
@@ -44,8 +44,28 @@ class ReviewsModel
     
     function orderBy($sort,$order)
     {
-        $sentencia=$this->db->prepare("SELECT * FROM reviews ORDER BY ? ?");
-        $sentencia->execute(array($sort,$order));
+        if($order=='desc'){
+            if($sort=='id_review'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY id_review DESC");
+            }else if($sort=='review'){
+                $sentencia= $this->db->prepare("SELECT * FROM reviews ORDER BY review DESC");
+            }else if($sort=='estrellas'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY estrellas DESC");
+            }else if($sort=='item'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY item DESC");
+            }
+        }else if($order=='asc'){
+            if($sort=='id_review'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY id_review ASC");
+            }else if($sort=='review'){
+                $sentencia= $this->db->prepare("SELECT * FROM reviews ORDER BY review ASC");
+            }else if($sort=='estrellas'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY estrellas ASC");
+            }else if($sort=='item'){
+                $sentencia =$this->db->prepare("SELECT * FROM reviews ORDER BY item ASC");
+            }
+        }
+        $sentencia->execute();
         $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }

@@ -69,11 +69,11 @@ class ApiController{
     }
    
     function createReview(){
-        $body = $this->getData();
-        $review = $body->body;
-        $punctuation = $body->punctuation;
-        $id_item = $body->id_item;
-        $this->model->insertReview($review, $punctuation, $id_item);
+        $data = $this->getData();
+        $review = $data->review;
+        $estrellas = $data->estrellas;
+        $item = $data->item;
+        $this->model->insertReview($review, $estrellas, $item);
         $this->view->response("Comentario creado con exito", 200);
     }
 
