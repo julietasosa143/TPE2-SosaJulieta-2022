@@ -4,6 +4,7 @@ require_once "./model/ItemsModel.php";
 require_once "./view/ItemsView.php";
 require_once "./model/CategoriesModel.php";
 require_once './helpers/authHelper.php';
+require_once './model/ReviewsModel.php';
 
 class ItemsController
 {
@@ -12,6 +13,7 @@ class ItemsController
     private $view;
     private $modelC;
     private $authHelper;
+    private $modelR;
     
     function __construct()
     {
@@ -19,6 +21,7 @@ class ItemsController
         $this->view = new ItemsView();
         $this -> modelC= new CategoriesModel();
         $this-> authHelper = new AuthHelper();
+        $this->modelR=new ReviewsModel();
     }
 
     function showItems()
@@ -34,7 +37,9 @@ class ItemsController
     {
         $logged = $this->authHelper->checkLoggedIn();
         $item = $this->model->getItem($id);
-        $this->view->renderItem($logged,$item);
+        $reviews=$this->modelR->getReviewsfromDB($id);
+        $this->view->renderItem($logged,$item,$reviews);
+
     }
     function addItem()
     {

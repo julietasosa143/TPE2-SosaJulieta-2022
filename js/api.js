@@ -16,13 +16,26 @@ async function getAll() {
             throw new Error('Recurso no existe');
         }
         tasks = await response.json();
-
-        showTasks();
     } catch(e) {
         console.log(e);
     }
 }
-async function insertTask(e) {
+async function getReviews() {
+    try {
+      let id = e.target.dataset.review;
+      let response = await fetch(URL+ "/" + id);
+      let reviews = await response.json();
+  
+      console.log(reviews);
+  
+      app.reviews = reviews;
+  
+      console.log(id_);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+async function insertReview(e) {
     e.preventDefault();
     
     let data = new FormData(form);
@@ -58,7 +71,7 @@ async function insertTask(e) {
 async function deleteReview(e) {
     e.preventDefault();
     try {
-        let id = e.target.dataset.task;
+        let id = e.target.dataset.review;
         let response = await fetch(URL + id, {method: 'DELETE'});
         if (!response.ok) {
             throw new Error('Recurso no existe');
@@ -82,7 +95,7 @@ function showReviews() {
                 <p>${review.item}</p>
                 <p>${review.review}</p>
                 <p>${review.punctuation} estrellas/p>
-                <a href='#' data-task="${review.id}" type='button' class='btn btn-danger btn-delete'>Borrar</a>
+                <a href='#' data-review="${review.id}" type='button' class='btn btn-danger btn-delete'>Borrar</a>
             </div>
         `;
 
@@ -90,7 +103,7 @@ function showReviews() {
     }
     const btnsDelete = document.querySelectorAll('a.btn-delete');
     for (const btnDelete of btnsDelete) {
-        btnDelete.addEventListener('click', deleteTask);
+        btnDelete.addEventListener('click', deleteReview());
     }
 }
 

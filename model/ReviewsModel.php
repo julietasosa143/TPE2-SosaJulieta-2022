@@ -22,12 +22,12 @@ class ReviewsModel
         return $reviews;
     }
 
-    function getReviewfromDB($id_item)
+    function getReviewfromDB($id_review)
     {
         $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE id_review = ?");
-        $sentencia->execute(array($id_item));
-        $reviews = $sentencia->fetch(PDO::FETCH_OBJ);
-        return $reviews;
+        $sentencia->execute(array($id_review));
+        $review = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $review;
     }
 
     function insertReview($body, $punctuation, $id_item)
@@ -52,6 +52,13 @@ class ReviewsModel
             $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ?");
         }
         $sentencia->execute(array($id_item));
+        $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $reviews;
+    }
+    function orderAttributeBy($sort,$order)
+    {
+        $sentencia->$this->db->prepare("SELECT $sort FROM reviews ORDER BY $order");
+        $sentencia->execute();
         $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }

@@ -24,7 +24,13 @@ class ApiController{
     function getAll(){
         $reviews= $this->model->getAllFromDB();
         if($reviews){
-            return $this->view->response($reviews, 200);}
+            $sort=$_GET['sort'];
+            $order=$_GET['order'];
+            if(isset ($order) && isset($sort)){
+                $reviews=$this->model->orderAttributeBy($sort,$order);
+                return $this->view->response($reviews, 200);
+            }
+        }
         else{
             return $this->view->response(null, 202);
         }

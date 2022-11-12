@@ -21,10 +21,11 @@ class ItemsView
     
     }
 
-    function renderItem($logged,$item)
+    function renderItem($logged,$item, $reviews)
     {
         $this->smarty->assign('items', $item);
         $this->smarty->assign('logged',$logged);
+        $this->smarty->assign('reviews', $reviews);
         $this->smarty->display('templates/item.tpl');
     }
     function redirectList()
