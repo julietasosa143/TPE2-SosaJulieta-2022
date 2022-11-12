@@ -42,24 +42,17 @@ class ReviewsModel
         $sentencia->execute(array($id));
     }
     
-    function getOrderedReviews($id_item, $order){
-        if($order===1){
-            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ? ORDER BY DESC");
-        }
-        else if($order===2){
-            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ? ORDER BY ASC"); 
-        }else if ($order===0){
-            $sentencia = $this->db->prepare("SELECT * FROM reviews WHERE item = ?");
-        }
-        $sentencia->execute(array($id_item));
+    function orderBy($sort,$order)
+    {
+        $sentencia=$this->db->prepare("SELECT * FROM reviews ORDER BY ? ?");
+        $sentencia->execute(array($sort,$order));
         $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }
-    function orderAttributeBy($sort,$order)
-    {
-        $sentencia->$this->db->prepare("SELECT $sort FROM reviews ORDER BY $order");
-        $sentencia->execute();
-        $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    function filterReviews($attribute, $value){
+        $sentencia= $this->db->prepare("SELECT * FROM reviews WHERE ? = ?");
+        $sentencia->execute(array($attribute, $value));
+        $reviews = $sentencia ->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }
 

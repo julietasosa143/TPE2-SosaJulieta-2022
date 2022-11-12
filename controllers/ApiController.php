@@ -22,12 +22,14 @@ class ApiController{
     }
    
     function getAll(){
+
         $reviews= $this->model->getAllFromDB();
+
         if($reviews){
             $sort=$_GET['sort'];
             $order=$_GET['order'];
             if(isset ($order) && isset($sort)){
-                $reviews=$this->model->orderAttributeBy($sort,$order);
+                $reviews=$this->model->orderBy($sort,$order);
                 return $this->view->response($reviews, 200);
             }
         }
@@ -75,14 +77,4 @@ class ApiController{
         $this->view->response("Comentario creado con exito", 200);
     }
 
-    function orderReviews($params=null){
-        $order = $_POST['order'];
-        $id_item = $params[":ID"];
-        $reviews = $this->model->getOrderedReviews($id_item, $order);
-        if($reviews){
-            return $this->view->response($reviews,200);
-        }else{
-            return $this->view->response("Este item no tiene ningun review", 404);
-        }
-    }
 }
