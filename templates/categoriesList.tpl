@@ -1,4 +1,9 @@
 {include file="templates/header.tpl"}
+{if $logged}
+<div class="btn-outline-danger">
+    <h3>ATENCION! Si se intenta borrar una categoria no se podra si la misma posee elementos por cuestiones de seguridad</h3>
+</div>
+{{/if}}
 <div>
     <h3>~~Lista de categorias</h3>
     <p>Clickee sobre la categoria deseada para inspeccionarla</p>

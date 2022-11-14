@@ -2,6 +2,7 @@
 
 require_once "./model/ReviewsModel.php";
 require_once "./view/ApiView.php";
+require_once "./view/ItemsView.php";
 
 
 class ApiController{
@@ -9,6 +10,7 @@ class ApiController{
     private $model;
     private $view;
     private $data;
+    private $viewI;
 
     function __construct()
     {
@@ -92,5 +94,15 @@ class ApiController{
         $this->model->insertReview($review, $estrellas, $item);
         $this->view->response("Comentario creado con exito", 200);
     }
-
+    function createReviewWoJson(){
+        $review = $_POST['review'];
+        $estrellas = $_POST['estrellas'];
+        $item = $_POST['item'];
+        $this->model->insertReview($review, $estrellas, $item);
+        $this->view->redirectList();
+    }
+    function deleteReviewWoJson($id){
+        $this->model->deleteReview($id);
+        $this->view->redirectList();
+    }
 }

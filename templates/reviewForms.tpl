@@ -1,5 +1,5 @@
 <div>
-    <form action="addItem" method="POST" id="reviewForm">
+    <form action="addReview" method="POST" id="reviewForm">
     <div class="mb-3">
         <select class="form select" aria-label="Default select example" name="item">
             {foreach from=$items item=$item}
@@ -8,10 +8,10 @@
         </select>
     </div>
     <div class="mb-3">
-        <textarea  placeholder="Su opinion del producto fue..." name="reviewBody" cols="30" rows="10"> </textarea>
+        <textarea  placeholder="Su opinion del producto fue..." name="review" cols="30" rows="10"> </textarea>
     </div>
     <div class="mb-3">
-        <select class="form-select " aria-label="Default select example" name="punctuation">
+        <select class="form-select " aria-label="Default select example" name="estrellas">
                 <option value="0"> Sin estrellas</option>
                 <option value="1"> 1 </option>
                 <option value="2"> 2 </option>

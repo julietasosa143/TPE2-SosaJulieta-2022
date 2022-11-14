@@ -66,4 +66,10 @@ switch ($params[0]) {
     case 'deleteItem':
         $ItemsController -> deleteItem($params[1]);
         break;
+    case 'addReview':
+        $ApiController-> createReviewWoJson();
+        break;
+    case 'deleteReview':
+        $ApiController->deleteReviewWoJson($params[1]);
+        break;
 }

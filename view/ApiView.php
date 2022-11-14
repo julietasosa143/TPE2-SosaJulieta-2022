@@ -20,5 +20,10 @@ class ApiView {
         );
         return (isset($status[$code])) ? $status[$code] : $status[500];
       }
+    
+      function redirectList()
+      {
+          header("Location: " . BASE_URL . "productos");
+      }
   
 }

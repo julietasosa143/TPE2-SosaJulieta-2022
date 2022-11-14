@@ -40,7 +40,7 @@ class CategoriesController
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $this->model->insertCategoryOnDB($nombre, $descripcion);
-        $this->view->redirectList();
+        $this->view->redirectCategoriesList();
     }
     function editCategory($id)
     {
@@ -49,12 +49,12 @@ class CategoriesController
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $this->model->editCategoryDB($id, $nombre, $descripcion);
-        $this->view->redirectList();
+        $this->view->redirectCategoriesList();
     }
     function deleteCategory($id)
     {
         $this->authHelper-> restrictLoggedIn();
         $this->model->deleteCategoryFromDB($id);
-        $this->view->redirectList();
+        $this->view->redirectCategoriesList();
     }
 }

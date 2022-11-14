@@ -24,5 +24,6 @@
     <div>
         {include file="templates/reviewForms.tpl"}
     </div>
+
 <script src="js/api.js">
 {include file="templates/footer.tpl"}

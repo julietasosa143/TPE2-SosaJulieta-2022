@@ -9,9 +9,7 @@
 
 <h3 class="text-center">Reviews de este producto</h3>
 
-<div id="reviewContainer" class="mb-3">
- 
-</div>
+{include file="templates/reviews.tpl"}
 
 <script src="js/api.js">
 
