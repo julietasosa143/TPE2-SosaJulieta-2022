@@ -69,9 +69,9 @@ class ReviewsModel
         $reviews = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }
-    function filterReviews($attribute, $value){
+    function filterReviews($filter, $value){
         $sentencia= $this->db->prepare("SELECT * FROM reviews WHERE ? = ?");
-        $sentencia->execute(array($attribute, $value));
+        $sentencia->execute(array($filter, $value));
         $reviews = $sentencia ->fetchAll(PDO::FETCH_OBJ);
         return $reviews;
     }

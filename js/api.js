@@ -6,8 +6,6 @@ let reviews = [];
 
 let form = document.querySelector('#reviewForm');
 form.addEventListener('submit', addReview);
-let orderForm= document.querySelector('#filterForm');
-orderForm.addEventListener('submit', orderReviews);
 
 async function getAll() {
     try {
@@ -42,7 +40,7 @@ async function insertReview(e) {
     let review = {
         id_review: null,
         review: data.get('reviewBody'),
-        punctuation: data.get('punctuation'),
+        estrellas: data.get('estrellas'),
         item: data.get('item'),
     };
 
@@ -86,25 +84,26 @@ async function deleteReview(e) {
 }
 
 function showReviews() {
-    let reviewList = document.querySelector("#reviewContainer");
-    reviewList.innerHTML = "";
+    let reviews = document.querySelector("#reviewContainer");
+    reviews.innerHTML = "";
     for (const review of reviews) {
 
         let html = `
-            <div>
-                <p>${review.item}</p>
+            <div class="mb-3">
+                <p>Un usuario anonimo dijo</p>
                 <p>${review.review}</p>
                 <p>${review.punctuation} estrellas/p>
-                <a href='#' data-review="${review.id}" type='button' class='btn btn-danger btn-delete'>Borrar</a>
+                <p>Del producto ${review.item}<>
+                <a href='#' data-review="${review.id}" type='button' class='btn-delete'>Borrar</a>
             </div>
         `;
 
-        ul.innerHTML += html;
+        reviews.innerHTML += html;
     }
-    const btnsDelete = document.querySelectorAll('a.btn-delete');
+    const btnsDelete = document.querySelectorAll('btn-delete');
     for (const btnDelete of btnsDelete) {
         btnDelete.addEventListener('click', deleteReview());
     }
 }
 
-getAll();
+getReviews();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-11-11 20:32:22
+/* Smarty version 3.1.39, created on 2022-11-14 20:25:16
   from 'C:\Users\julie\OneDrive\Documents\TUDAI\Web 2\xampp\htdocs\web2\TPE2-SosaJulieta-2022\templates\item.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_636ea3461f1ed6_46188124',
+  'unifunc' => 'content_6372961ce391b9_80113206',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f7cc792573d5e75feb465761f1298011a80b044' => 
     array (
       0 => 'C:\\Users\\julie\\OneDrive\\Documents\\TUDAI\\Web 2\\xampp\\htdocs\\web2\\TPE2-SosaJulieta-2022\\templates\\item.tpl',
-      1 => 1668194473,
+      1 => 1668453569,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_636ea3461f1ed6_46188124 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6372961ce391b9_80113206 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,7 +40,8 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
 </h3>
 
 <h3 class="text-center">Reviews de este producto</h3>
-<div id="reviewContainer">
+
+<div id="reviewContainer" class="mb-3">
  
 </div>
 

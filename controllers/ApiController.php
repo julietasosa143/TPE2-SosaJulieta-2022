@@ -29,7 +29,23 @@ class ApiController{
                 $order=$_GET['order'];
                 $reviews=$this->model->orderBy($sort,$order);
                 return $this->view->response($reviews, 200);
-            } else{
+            } else if(isset($_GET['id_review'])){
+                $filter= 'id_review';
+                $value= $_GET['id_review'];
+                $reviews=$this->model->filterReviews($filter, $value);
+                return $this->view->response($reviews, 200);
+            }else if(isset($_GET['review'])){
+                $filter= 'review';
+                $value= $_GET['review'];
+                $reviews=$this->model->filterReviews($filter, $value);
+                return $this->view->response($reviews, 200);
+            }else if(isset($_GET['estrellas'])){
+                $filter= 'estrellas';
+                $value= $_GET['estrellas'];
+                $reviews=$this->model->filterReviews($filter, $value);
+                return $this->view->response($reviews, 200);
+            }
+            else{
                 return $this->view->response($reviews, 200);
             }
         }
