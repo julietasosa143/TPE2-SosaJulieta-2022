@@ -71,7 +71,7 @@ class ApiController{
         if($review){
             return $this->view->response($review, 200);}
         else{
-            return $this->view->response("No existe la resenia con id = $id_review", 400);
+            return $this->view->response("No existe la resenia con id = $id_review", 404);
         }
     }
 
