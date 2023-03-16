@@ -28,6 +28,8 @@ class ItemsView
         $this->smarty->assign('reviews', $reviews);
         $this->smarty->display('templates/item.tpl');
     }
+
+    
     function redirectList()
     {
         header("Location: " . BASE_URL . "productos");

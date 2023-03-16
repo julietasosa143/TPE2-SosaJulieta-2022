@@ -10,7 +10,6 @@ class ApiController{
     private $model;
     private $view;
     private $data;
-    private $viewI;
 
     function __construct()
     {
@@ -92,7 +91,7 @@ class ApiController{
         $estrellas = $data->estrellas;
         $item = $data->item;
         $this->model->insertReview($review, $estrellas, $item);
-        $this->view->response("Comentario creado con exito", 200);
+        $this->view->response("Comentario creado con exito", 201);
     }
     function createReviewWoJson(){
         $review = $_POST['review'];
